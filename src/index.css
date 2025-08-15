@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --background: 0 0% 100%; /* White */
+  --foreground: 222.2 84% 4.9%; /* Dark Gray/Black for text */
+  --card: 0 0% 100%; /* White */
+  --card-foreground: 222.2 84% 4.9%; /* Dark Gray/Black */
+  --popover: 0 0% 100%; /* White */
+  --popover-foreground: 222.2 84% 4.9%; /* Dark Gray/Black */
+  --primary: 217 91% 57%; /* Blue */
+  --primary-foreground: 0 0% 100%; /* White */
+  --secondary: 25 95% 53%; /* Orange */
+  --secondary-foreground: 0 0% 100%; /* White */
+  --muted: 210 40% 96.1%; /* Light Gray */
+  --muted-foreground: 215.4 16.3% 46.9%; /* Medium Gray */
+  --accent: 210 40% 96.1%; /* Light Gray */
+  --accent-foreground: 222.2 84% 4.9%; /* Dark Gray/Black */
+  --destructive: 0 84.2% 60.2%; /* Red */
+  --destructive-foreground: 0 0% 100%; /* White */
+  --border: 214.3 31.8% 91.4%; /* Light Gray Border */
+  --input: 214.3 31.8% 91.4%; /* Light Gray Input */
+  --ring: 217 91% 57%; /* Blue */
+  --radius: 0.75rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  @apply bg-background text-foreground min-h-screen;
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-effect {
+  @apply bg-white/80 backdrop-blur-lg border border-gray-200/50;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent;
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.4); /* Blue glow */
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
