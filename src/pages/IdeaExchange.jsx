@@ -140,41 +140,54 @@ const IdeaExchange = () => {
   return (
     <>
       <Helmet>
-        <title>Bolsa de Ideias - Associação</title>
+        <title>Bolsa de Ideias - Transformando Conceitos em Inovação</title>
         <meta
           name="description"
-          content="Submeta suas ideias inovadoras, vote nas melhores propostas e acompanhe o desenvolvimento de projetos na nossa bolsa de ideias."
+          content="Submeta suas ideias inovadoras, vote nas melhores propostas e acompanhe o desenvolvimento de projetos na nossa bolsa de ideias colaborativa."
         />
-        <meta property="og:title" content="Bolsa de Ideias - Associação" />
+        <meta property="og:title" content="Bolsa de Ideias - Transformando Conceitos em Inovação" />
         <meta
           property="og:description"
-          content="Submeta suas ideias inovadoras, vote nas melhores propostas e acompanhe o desenvolvimento de projetos na nossa bolsa de ideias."
+          content="Submeta suas ideias inovadoras, vote nas melhores propostas e acompanhe o desenvolvimento de projetos na nossa bolsa de ideias colaborativa."
         />
       </Helmet>
 
-      <div className="py-20">
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-8"
+            className="text-center mb-12"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Bolsa de <span className="gradient-text">Ideias</span>
+              Bolsa de <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Ideias</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
               Transforme suas ideias em realidade. Submeta, vote e colabore no
-              desenvolvimento de projetos inovadores.
+              desenvolvimento de projetos inovadores que podem mudar o mundo.
             </p>
-            <Button
-              onClick={() => setShowSubmitForm(true)}
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 hover-glow text-white"
-            >
-              <Plus className="w-5 h-5 mr-2" />
-              Submeter Nova Ideia
-            </Button>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+              <Button
+                onClick={() => setShowSubmitForm(true)}
+                size="lg"
+                className="bg-blue-800 hover:bg-blue-900 hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-white"
+              >
+                <Plus className="w-5 h-5 mr-2" />
+                Submeter Nova Ideia
+              </Button>
+              
+              <div className="flex items-center space-x-4 text-sm text-gray-600">
+                <div className="flex items-center space-x-1">
+                  <Star className="w-4 h-4 text-yellow-500" />
+                  <span>{filteredIdeas.length} ideias ativas</span>
+                </div>
+                <div className="text-blue-600">
+                  {user ? `Bem-vindo, ${user.name}!` : 'Faça login para participar'}
+                </div>
+              </div>
+            </div>
           </motion.div>
         </section>
 

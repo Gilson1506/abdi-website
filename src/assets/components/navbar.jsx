@@ -43,11 +43,27 @@ const Navbar = () => {
     <nav className="relative w-full z-50 glass-effect">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-orange-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
+          <Link to="/" className="flex items-center space-x-3">
+            {/* Logo - suporte para PNG */}
+            <div className="flex items-center">
+              <img 
+                src="/logo.png" 
+                alt="Bolsa de Ideias" 
+                className="w-10 h-10 object-contain"
+                onError={(e) => {
+                  // Fallback para quando não houver logo
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling.style.display = 'flex';
+                }}
+              />
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg hidden">
+                <span className="text-white font-bold text-xl">💡</span>
+              </div>
             </div>
-            <span className="text-xl font-bold gradient-text">Associação</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-blue-800">Bolsa de Ideias</span>
+              <span className="text-xs text-blue-600 -mt-1">Inovação & Colaboração</span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
@@ -56,8 +72,8 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  isActive(item.path) ? 'text-blue-600' : 'text-gray-700'
+                className={`text-sm font-medium transition-colors hover:text-blue-800 ${
+                  isActive(item.path) ? 'text-blue-800 font-semibold' : 'text-gray-700'
                 }`}
               >
                 {item.name}
@@ -73,7 +89,7 @@ const Navbar = () => {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-700 hover:text-blue-600"
+                    className="text-gray-700 hover:text-blue-800"
                   >
                     <User className="w-4 h-4 mr-2" />
                     {user.name}
@@ -94,7 +110,7 @@ const Navbar = () => {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-700 hover:text-blue-600"
+                    className="text-gray-700 hover:text-blue-800"
                   >
                     Entrar
                   </Button>
@@ -102,7 +118,7 @@ const Navbar = () => {
                 <Link to="/registro">
                   <Button
                     size="sm"
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    className="bg-blue-800 hover:bg-blue-900 text-white shadow-lg"
                   >
                     Registrar
                   </Button>

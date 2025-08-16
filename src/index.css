@@ -11,20 +11,26 @@
   --card-foreground: 222.2 84% 4.9%; /* Dark Gray/Black */
   --popover: 0 0% 100%; /* White */
   --popover-foreground: 222.2 84% 4.9%; /* Dark Gray/Black */
-  --primary: 217 91% 57%; /* Blue */
+  --primary: 210 100% 40%; /* Azul Forte */
   --primary-foreground: 0 0% 100%; /* White */
-  --secondary: 25 95% 53%; /* Orange */
-  --secondary-foreground: 0 0% 100%; /* White */
+  --secondary: 210 100% 95%; /* Azul Claro */
+  --secondary-foreground: 210 100% 40%; /* Azul Forte */
   --muted: 210 40% 96.1%; /* Light Gray */
   --muted-foreground: 215.4 16.3% 46.9%; /* Medium Gray */
-  --accent: 210 40% 96.1%; /* Light Gray */
-  --accent-foreground: 222.2 84% 4.9%; /* Dark Gray/Black */
+  --accent: 210 100% 90%; /* Azul Muito Claro */
+  --accent-foreground: 210 100% 40%; /* Azul Forte */
   --destructive: 0 84.2% 60.2%; /* Red */
   --destructive-foreground: 0 0% 100%; /* White */
-  --border: 214.3 31.8% 91.4%; /* Light Gray Border */
-  --input: 214.3 31.8% 91.4%; /* Light Gray Input */
-  --ring: 217 91% 57%; /* Blue */
+  --border: 210 40% 90%; /* Light Blue Border */
+  --input: 210 40% 94%; /* Light Blue Input */
+  --ring: 210 100% 40%; /* Azul Forte */
   --radius: 0.75rem;
+  
+  /* Cores customizadas para Bolsa de Ideias */
+  --brand-blue: 210 100% 40%; /* Azul Forte Principal */
+  --brand-blue-light: 210 100% 50%; /* Azul Médio */
+  --brand-blue-lighter: 210 100% 90%; /* Azul Claro */
+  --brand-blue-dark: 210 100% 30%; /* Azul Escuro */
 }
 
 * {
@@ -77,4 +83,26 @@ body {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Bolsa de Ideias Custom Styles */
+.brand-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-blue-800;
+}
+
+.brand-gradient-light {
+  @apply bg-gradient-to-r from-blue-50 to-blue-100;
+}
+
+.brand-text {
+  @apply bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent;
+}
+
+.brand-shadow {
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.25), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+}
+
+.brand-hover:hover {
+  @apply transform scale-105 shadow-lg;
+  transition: all 0.3s ease-in-out;
 }
