@@ -133,7 +133,8 @@ const NewsDetails = () => {
             </div>
 
             {/* Título */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight            {article.title}
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              {article.title}
             </h1>
 
             {/* Autor e Compartilhamento */}

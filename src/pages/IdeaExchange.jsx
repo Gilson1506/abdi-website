@@ -5,9 +5,9 @@ import { Plus, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from '@/components/ui/use-toast';
-import IdeaFilters from '@/components/idea-exchange/IdeaFilters';
-import IdeaCard from '@/components/idea-exchange/IdeaCard';
-import SubmitIdeaForm from '@/components/idea-exchange/SubmitIdeaForm';
+import IdeaFilters from '@/assets/components/idea-exchange/IdeaFilters';
+import IdeaCard from '@/assets/components/idea-exchange/IdeaCard';
+import SubmitIdeaForm from '@/assets/components/idea-exchange/SubmitIdeaForm';
 
 const IdeaExchange = () => {
   const { user } = useAuth();
