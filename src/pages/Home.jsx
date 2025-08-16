@@ -5,11 +5,8 @@ import { motion } from 'framer-motion';
 import {
   Calendar,
   Lightbulb,
-  Rocket,
   Users,
   ArrowRight,
-  Star,
-  TrendingUp,
 } from 'lucide-react';
 import { Button } from '@/assets/components/ui/button';
 import ImageCarousel from '@/assets/components/ImageCarousel';
@@ -62,7 +59,7 @@ const Home = () => {
       {
         id: 5,
         title: 'Investimento de R$ 2 milhões captado',
-        excerpt: 'Projetos da nossa comunidade captaram investimentos significativos para desenvolvimento.',
+        excerpt: 'Projetos da nossa comunidade capturaram investimentos significativos para desenvolvimento.',
         image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
         date: '2024-01-05',
         category: 'Investimento'
@@ -73,13 +70,6 @@ const Home = () => {
     setUpcomingEvents(events.slice(0, 6));
     setLatestProjects(projects.slice(0, 6));
   }, []);
-
-  const stats = [
-    { icon: Users, label: 'Membros Ativos', value: '250+' },
-    { icon: Lightbulb, label: 'Ideias Submetidas', value: '180+' },
-    { icon: Rocket, label: 'Projetos Concluídos', value: '45+' },
-    { icon: Calendar, label: 'Eventos Realizados', value: '120+' },
-  ];
 
   return (
     <>
@@ -95,7 +85,7 @@ const Home = () => {
         />
         <meta
           property="og:description"
-          content="Plataforma da associação para submissão de ideias, gestão de projetos e eventos. Junte-se à nossa comunidade inovadora."
+          content="Bolsa de Ideias - Plataforma para submissão de ideias, gestão de projetos inovadores e eventos colaborativos. Junte-se à nossa comunidade de inovadores."
         />
       </Helmet>
 
@@ -364,214 +354,36 @@ const Home = () => {
         />
 
         {/* Call to Action */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-b from-blue-50 to-white py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+              transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Projetos <span className="gradient-text">Recentes</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Faça Parte da <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Revolução</span>
               </h2>
-              <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-                Conheça os projetos mais recentes da nossa comunidade
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {latestProjects.length > 0 ? (
-                latestProjects.map((project, index) => (
-                  <motion.div
-                    key={project.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="glass-effect p-6 rounded-2xl hover-glow"
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          project.status === 'completed'
-                            ? 'bg-green-500/20 text-green-600'
-                            : project.status === 'in-progress'
-                            ? 'bg-blue-500/20 text-blue-600'
-                            : 'bg-orange-500/20 text-orange-600'
-                        }`}
-                      >
-                        {project.status === 'completed'
-                          ? 'Concluído'
-                          : project.status === 'in-progress'
-                          ? 'Em Andamento'
-                          : 'Planejado'}
-                      </span>
-                      <TrendingUp className="w-4 h-4 text-blue-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-700 text-sm mb-4 line-clamp-3">
-                      {project.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-blue-600 text-sm">
-                        {project.category}
-                      </span>
-                      <span className="text-gray-500 text-xs">
-                        {project.date}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))
-              ) : (
-                <div className="col-span-3 text-center py-12">
-                  <Rocket className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                  <p className="text-gray-700">Nenhum projeto encontrado.</p>
-                </div>
-              )}
-            </div>
-
-            <div className="text-center mt-12">
-              <Link to="/projetos">
-                <Button
-                  variant="outline"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-100"
-                >
-                  Ver Todos os Projetos
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Upcoming Events */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Próximos <span className="gradient-text">Eventos</span>
-              </h2>
-              <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-                Não perca os eventos mais importantes da nossa comunidade
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {upcomingEvents.length > 0 ? (
-                upcomingEvents.map((event, index) => (
-                  <motion.div
-                    key={event.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="glass-effect p-6 rounded-2xl hover-glow"
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-blue-600 text-sm font-medium">
-                        {event.date}
-                      </span>
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          event.price === 'Gratuito'
-                            ? 'bg-green-500/20 text-green-600'
-                            : 'bg-blue-500/20 text-blue-600'
-                        }`}
-                      >
-                        {event.price}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                      {event.title}
-                    </h3>
-                    <p className="text-gray-700 text-sm mb-4 line-clamp-3">
-                      {event.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-500 text-xs">
-                        {event.location}
-                      </span>
-                      <Link to={`/eventos/${event.id}`}>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="border-blue-600 text-blue-600 hover:bg-blue-100"
-                        >
-                          Ver Detalhes
-                        </Button>
-                      </Link>
-                    </div>
-                  </motion.div>
-                ))
-              ) : (
-                <div className="col-span-3 text-center py-12">
-                  <Calendar className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                  <p className="text-gray-700">
-                    Nenhum evento programado no momento.
-                  </p>
-                </div>
-              )}
-            </div>
-
-            <div className="text-center mt-12">
-              <Link to="/eventos">
-                <Button
-                  variant="outline"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-100"
-                >
-                  Ver Todos os Eventos
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="glass-effect p-12 rounded-3xl hover-glow"
-            >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Pronto para <span className="gradient-text">Inovar</span>?
-              </h2>
-              <p className="text-gray-700 text-lg mb-8 max-w-2xl mx-auto">
-                Junte-se à nossa comunidade e faça parte da transformação.
-                Submeta suas ideias, participe em projetos e conecte-se com
-                outros inovadores.
+              <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
+                Junte-se à nossa comunidade de inovadores e transforme suas ideias em projetos que impactam o mundo.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/registro">
-                  <Button
-                    size="lg"
-                    className="bg-blue-600 hover:bg-blue-700 hover-glow text-white"
-                  >
-                    Tornar-se Membro
+                  <Button size="lg" className="bg-blue-800 hover:bg-blue-900 text-white">
+                    <Users className="w-5 h-5 mr-2" />
+                    Criar Conta Gratuita
                   </Button>
                 </Link>
-                <Link to="/sobre">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-gray-300 text-gray-700 hover:bg-gray-100"
-                  >
-                    Saber Mais
+                <Link to="/bolsa-ideias">
+                  <Button variant="outline" size="lg" className="border-blue-300 text-blue-800 hover:bg-blue-50">
+                    <Lightbulb className="w-5 h-5 mr-2" />
+                    Explorar Ideias
                   </Button>
                 </Link>
               </div>
             </motion.div>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );
