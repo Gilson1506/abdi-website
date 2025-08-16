@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/assets/components/ui/toaster';
 import { AuthProvider } from '@/contexts/AuthContext';
 import Navbar from '@/assets/components/navbar';
+import MiniHeader from '@/assets/components/MiniHeader';
+import BlueHeader from '@/assets/components/BlueHeader';
 import Footer from '@/assets/components/Footer';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
@@ -23,6 +25,8 @@ function App() {
       <Router>
         <div className="min-h-screen flex flex-col">
           <Navbar />
+          <MiniHeader />
+          <BlueHeader />
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />

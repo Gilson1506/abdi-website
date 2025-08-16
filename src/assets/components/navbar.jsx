@@ -18,22 +18,6 @@ const Navbar = () => {
       path: '/sobre',
     },
     {
-      name: 'Bolsa de Ideias',
-      path: '/bolsa-ideias',
-    },
-    {
-      name: 'Projetos',
-      path: '/projetos',
-    },
-    {
-      name: 'Eventos',
-      path: '/eventos',
-    },
-    {
-      name: 'Notícias',
-      path: '/noticias',
-    },
-    {
       name: 'Contato',
       path: '/contato',
     },
