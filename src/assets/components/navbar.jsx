@@ -111,13 +111,35 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile actions */}
+          <div className="flex items-center md:hidden space-x-2">
+            {user ? (
+              <Link to="/area-associado">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-700 hover:text-blue-800 rounded-full"
+                >
+                  <User className="w-5 h-5" />
+                </Button>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-700 hover:text-blue-800"
+                >
+                  <User className="w-4 h-4 mr-1" />
+                  Entrar
+                </Button>
+              </Link>
+            )}
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700"
+              className="text-gray-700 bg-white/70 border border-gray-200 rounded-full shadow-sm hover:bg-white"
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
@@ -184,13 +206,6 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    <Link
-                      to="/login"
-                      onClick={() => setIsOpen(false)}
-                      className="block text-sm font-medium text-gray-700 hover:text-blue-600"
-                    >
-                      Entrar
-                    </Link>
                     <Link
                       to="/registro"
                       onClick={() => setIsOpen(false)}
