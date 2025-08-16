@@ -1,11 +1,11 @@
-import React, { useState, useEffect } => {
-  import { Link } from 'react-router-dom';
-  import { Helmet } from 'react-helmet';
-  import { motion } from 'framer-motion';
-  import { Calendar, User, ArrowRight, Search, Filter, Tag } from 'lucide-react';
-  import { Button } from '@/components/ui/button';
-  
-  const News = () => {
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
+import { Calendar, User, ArrowRight, Search, Filter, Tag } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+const News = () => {
     const [news, setNews] = useState([]);
     const [filteredNews, setFilteredNews] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
