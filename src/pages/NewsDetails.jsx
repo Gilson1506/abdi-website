@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/use-toast';
+import { Button } from '@/assets/components/ui/button';
+import { toast } from '@/assets/components/ui/use-toast';
 
 const NewsDetails = () => {
   const { id } = useParams();
@@ -133,7 +133,8 @@ const NewsDetails = () => {
             </div>
 
             {/* Título */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight            {article.title}
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              {article.title}
             </h1>
 
             {/* Autor e Compartilhamento */}

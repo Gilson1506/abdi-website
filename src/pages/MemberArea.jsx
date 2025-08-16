@@ -11,15 +11,15 @@ import {
   Settings,
   LogOut,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/assets/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
-import { toast } from '@/components/ui/use-toast';
-import MemberOverview from '@/components/member-area/MemberOverview';
-import MemberIdeas from '@/components/member-area/MemberIdeas';
-import MemberProjects from '@/components/member-area/MemberProjects';
-import MemberEvents from '@/components/member-area/MemberEvents';
-import MemberCertificates from '@/components/member-area/MemberCertificates';
-import MemberSettings from '@/components/member-area/MemberSettings';
+import { toast } from '@/assets/components/ui/use-toast';
+import MemberOverview from '@/assets/components/member-area/MemberOverview';
+import MemberIdeas from '@/assets/components/member-area/MemberIdeas';
+import MemberProjects from '@/assets/components/member-area/MemberProjects';
+import MemberEvents from '@/assets/components/member-area/MemberEvents';
+import MemberCertificates from '@/assets/components/member-area/MemberCertificates';
+import MemberSettings from '@/assets/components/member-area/MemberSettings';
 
 const MemberArea = () => {
   const { user, logout } = useAuth();

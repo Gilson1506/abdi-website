@@ -1,9 +1,9 @@
-import React, { useState, useEffect } => {
-  import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
   import { Helmet } from 'react-helmet';
   import { motion } from 'framer-motion';
   import { Calendar, User, ArrowRight, Search, Filter, Tag } from 'lucide-react';
-  import { Button } from '@/components/ui/button';
+  import { Button } from '@/assets/components/ui/button';
   
   const News = () => {
     const [news, setNews] = useState([]);
@@ -126,7 +126,7 @@ import React, { useState, useEffect } => {
     };
   
     const handleNewsletterSubscribe = async () => {
-      const { toast } = await import('@/components/ui/use-toast');
+      const { toast } = await import('@/assets/components/ui/use-toast');
       toast({
         title: "🚧 Esta funcionalidade ainda não está implementada—mas não se preocupe! Pode solicitá-la no seu próximo prompt! 🚀"
       });

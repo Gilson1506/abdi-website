@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/use-toast';
+import { Button } from '@/assets/components/ui/button';
+import { toast } from '@/assets/components/ui/use-toast';
 
 const MemberEvents = ({ events }) => {
   const navigate = useNavigate();

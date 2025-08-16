@@ -11,7 +11,7 @@ import {
   Star,
   TrendingUp,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/assets/components/ui/button';
 
 const Home = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);

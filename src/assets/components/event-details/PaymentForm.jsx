@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/assets/components/ui/button';
 import { CreditCard, Smartphone, Building, Euro } from 'lucide-react';
 
 const PaymentForm = ({

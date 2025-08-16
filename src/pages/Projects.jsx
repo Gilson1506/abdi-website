@@ -10,8 +10,8 @@ import {
   Calendar,
   User,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/use-toast';
+import { Button } from '@/assets/components/ui/button';
+import { toast } from '@/assets/components/ui/use-toast';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);

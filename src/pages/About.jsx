@@ -63,7 +63,7 @@ const About = () => {
   ];
 
   const handleDownloadStatutes = async () => {
-    const { toast } = await import('@/components/ui/use-toast');
+    const { toast } = await import('@/assets/components/ui/use-toast');
     toast({
       title:
         '🚧 Esta funcionalidade ainda não está implementada—mas não se preocupe! Pode solicitá-la no seu próximo prompt! 🚀',
