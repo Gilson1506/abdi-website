@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, User, LogOut } from 'lucide-react';
+import { Menu, X, User, LogOut, UserCircle } from 'lucide-react';
 import { Button } from '@/assets/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { user, logout } = useAuth();
+
   const navItems = [
     {
       name: 'Início',
@@ -22,7 +24,9 @@ const Navbar = () => {
       path: '/contato',
     },
   ];
+
   const isActive = (path) => location.pathname === path;
+
   return (
     <nav className="relative w-full z-50 glass-effect">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,25 +115,53 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile Right Section */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Link Entrar fora da barra de menu em mobile */}
+            {!user && (
+              <Link to="/login">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-700 hover:text-blue-800 px-3 py-2"
+                >
+                  <UserCircle className="w-4 h-4 mr-1" />
+                  <span className="text-sm">Entrar</span>
+                </Button>
+              </Link>
+            )}
+            
+            {/* Ícone de perfil para usuário logado */}
+            {user && (
+              <Link to="/area-associado">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-700 hover:text-blue-800 px-2 py-2"
+                >
+                  <UserCircle className="w-5 h-5" />
+                </Button>
+              </Link>
+            )}
+
+            {/* Menu button com novo estilo */}
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700"
+              className="text-gray-700 hover:bg-blue-50 border border-gray-300 hover:border-blue-400 rounded-lg p-2"
             >
               {isOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
               )}
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu com novo estilo */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -145,56 +177,47 @@ const Navbar = () => {
               opacity: 0,
               height: 0,
             }}
-            className="md:hidden glass-effect border-t border-gray-200/50"
+            className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg"
           >
-            <div className="px-4 py-4 space-y-4">
+            <div className="px-4 py-4 space-y-3">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block text-sm font-medium transition-colors hover:text-blue-600 ${
-                    isActive(item.path) ? 'text-blue-600' : 'text-gray-700'
+                  className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-blue-50 hover:text-blue-800 ${
+                    isActive(item.path) ? 'text-blue-800 bg-blue-50 font-semibold' : 'text-gray-700'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-gray-200/50">
+              
+              {/* Seção do usuário no menu mobile */}
+              <div className="pt-3 border-t border-gray-200">
                 {user ? (
                   <div className="space-y-2">
-                    <Link
-                      to="/area-associado"
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600"
-                    >
-                      <User className="w-4 h-4 mr-2" />
+                    <div className="px-3 py-2 text-sm font-medium text-gray-600 bg-gray-50 rounded-lg">
+                      <UserCircle className="w-4 h-4 mr-2 inline" />
                       {user.name}
-                    </Link>
+                    </div>
                     <button
                       onClick={() => {
                         logout();
                         setIsOpen(false);
                       }}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-red-500"
+                      className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
                     >
-                      <LogOut className="w-4 h-4 mr-2" />
+                      <LogOut className="w-4 h-4 mr-2 inline" />
                       Sair
                     </button>
                   </div>
                 ) : (
                   <div className="space-y-2">
                     <Link
-                      to="/login"
-                      onClick={() => setIsOpen(false)}
-                      className="block text-sm font-medium text-gray-700 hover:text-blue-600"
-                    >
-                      Entrar
-                    </Link>
-                    <Link
                       to="/registro"
                       onClick={() => setIsOpen(false)}
-                      className="block text-sm font-medium text-gray-700 hover:text-blue-600"
+                      className="block px-3 py-2 rounded-lg text-sm font-medium text-white bg-blue-800 hover:bg-blue-900 transition-colors text-center"
                     >
                       Registrar
                     </Link>
@@ -208,4 +231,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;
