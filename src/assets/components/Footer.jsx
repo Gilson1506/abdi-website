@@ -13,16 +13,21 @@ import {
 const Footer = () => {
   return (
     <footer className="glass-effect border-t border-gray-200/50 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo e Descrição */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-orange-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">A</span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="Bolsa de Ideias"
+                className="w-10 h-10 object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
               <span className="text-xl font-bold gradient-text">
-                Associação
+                Bolsa de Ideias
               </span>
             </div>
             <p className="text-gray-700 text-sm">
@@ -71,7 +76,7 @@ const Footer = () => {
           </div>
 
           {/* Recursos */}
-          <div>
+          <div className="hidden md:block">
             <span className="text-gray-800 font-semibold text-lg mb-4 block">
               Recursos
             </span>
@@ -124,9 +129,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-200/50 mt-8 pt-8 text-center">
-          <p className="text-gray-600 text-sm">
-            © 2024 Associação. Todos os direitos reservados.
+                <div className="border-t border-gray-200/50 mt-6 pt-6 text-center">
+          <p className="text-gray-600 text-xs sm:text-sm">
+            © 2024 Bolsa de Ideias. Todos os direitos reservados.
           </p>
         </div>
       </div>

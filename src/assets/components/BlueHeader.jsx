@@ -7,8 +7,8 @@ const BlueHeader = () => {
 
   const navItems = [
     {
-      name: 'Bolsa de Ideias',
-      path: '/bolsa-ideias'
+      name: 'Início',
+      path: '/'
     },
     {
       name: 'Projetos',

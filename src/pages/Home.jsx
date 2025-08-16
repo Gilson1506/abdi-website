@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import {
-  Calendar,
   Lightbulb,
   Users,
   ArrowRight,
+  UserPlus,
 } from 'lucide-react';
 import { Button } from '@/assets/components/ui/button';
 import ImageCarousel from '@/assets/components/ImageCarousel';
@@ -97,27 +97,16 @@ const Home = () => {
             <ImageCarousel />
             
             {/* Overlay Content */}
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <div className="text-center text-white z-10 max-w-4xl mx-auto px-4">
+            <div className="absolute inset-0 bg-black/30">
+              <div className="text-white z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end justify-end pb-8">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h1 className="text-2xl md:text-3xl font-bold mb-3">
-                    <span className="text-white">
-                      Bolsa de Ideias
-                    </span>
-                    <br />
-                    <span className="text-blue-200">Transformando Conceitos</span>
-                  </h1>
+                  {/* removed heading and paragraph per request */}
 
-                  <p className="text-sm md:text-base text-blue-100 max-w-2xl mx-auto mb-6">
-                    Conectamos mentes criativas, promovemos inovação e transformamos ideias 
-                    brilhantes em soluções que impactam o mundo
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-end items-end">
                     <Link to="/bolsa-ideias">
                       <Button
                         size="default"
@@ -127,14 +116,14 @@ const Home = () => {
                         Submeter Ideia
                       </Button>
                     </Link>
-                    <Link to="/eventos">
+                    <Link to="/registro">
                       <Button
                         variant="outline"
                         size="default"
                         className="border-white text-white hover:bg-white hover:text-blue-800 transition-all duration-300"
                       >
-                        <Calendar className="w-4 h-4 mr-2" />
-                        Próximos Eventos
+                        <UserPlus className="w-4 h-4 mr-2" />
+                        Associar-se
                       </Button>
                     </Link>
                   </div>

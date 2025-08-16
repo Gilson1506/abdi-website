@@ -14,6 +14,10 @@ const Navbar = () => {
       path: '/',
     },
     {
+      name: 'Bolsa de Ideias',
+      path: '/bolsa-ideias',
+    },
+    {
       name: 'Sobre Nós',
       path: '/sobre',
     },

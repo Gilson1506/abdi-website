@@ -6,6 +6,7 @@ import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/assets/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from '@/assets/components/ui/use-toast';
+import ImageCarousel from '@/assets/components/ImageCarousel';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -68,13 +69,16 @@ const Login = () => {
         />
       </Helmet>
 
-      <div className="py-20 min-h-screen flex items-center justify-center">
-        <div className="max-w-md w-full mx-4">
+      <div className="py-10 md:py-16 min-h-screen flex items-center">
+        <div className="w-full max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+          <div className="hidden md:block">
+            <ImageCarousel />
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="glass-effect p-8 rounded-3xl"
+            className="glass-effect p-8 rounded-3xl max-w-md w-full mx-auto"
           >
             {/* Header */}
             <div className="text-center mb-8">
