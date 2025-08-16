@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/use-toast';
+import { Button } from '@/assets/components/ui/button';
+import { toast } from '@/assets/components/ui/use-toast';
 
 const MemberSettings = ({ user }) => {
   const handleAction = () => {

@@ -3,15 +3,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/assets/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
-import { toast } from '@/components/ui/use-toast';
-import EventHeader from '@/components/event-details/EventHeader';
-import EventInfo from '@/components/event-details/EventInfo';
-import EventAgenda from '@/components/event-details/EventAgenda';
-import EventMap from '@/components/event-details/EventMap';
-import RegistrationForm from '@/components/event-details/RegistrationForm';
-import PaymentForm from '@/components/event-details/PaymentForm';
+import { toast } from '@/assets/components/ui/use-toast';
+import EventHeader from '@/assets/components/event-details/EventHeader';
+import EventInfo from '@/assets/components/event-details/EventInfo';
+import EventAgenda from '@/assets/components/event-details/EventAgenda';
+import EventMap from '@/assets/components/event-details/EventMap';
+import RegistrationForm from '@/assets/components/event-details/RegistrationForm';
+import PaymentForm from '@/assets/components/event-details/PaymentForm';
 
 const EventDetails = () => {
   const { id } = useParams();

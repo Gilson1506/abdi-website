@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Rocket } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/assets/components/ui/button';
 
 const getStatusColor = (status) => {
   switch (status) {

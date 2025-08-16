@@ -11,7 +11,8 @@ import {
   Star,
   TrendingUp,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/assets/components/ui/button';
+import ImageCarousel from '@/assets/components/ImageCarousel';
 
 const Home = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -39,14 +40,14 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Associação - Fomentando Inovação e Colaboração</title>
+        <title>Bolsa de Ideias - Transformando Ideias em Inovação</title>
         <meta
           name="description"
-          content="Plataforma da associação para submissão de ideias, gestão de projetos e eventos. Junte-se à nossa comunidade inovadora."
+          content="Bolsa de Ideias - Plataforma para submissão de ideias, gestão de projetos inovadores e eventos colaborativos. Junte-se à nossa comunidade de inovadores."
         />
         <meta
           property="og:title"
-          content="Associação - Fomentando Inovação e Colaboração"
+          content="Bolsa de Ideias - Transformando Ideias em Inovação"
         />
         <meta
           property="og:description"
@@ -54,34 +55,35 @@ const Home = () => {
         />
       </Helmet>
 
-      <div className="">
+      <div className="bg-gradient-to-b from-blue-50 to-white">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-orange-500/20" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="relative py-12 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header Text */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-8"
+              className="text-center mb-12"
             >
-              <h1 className="text-5xl md:text-7xl font-bold">
-                <span className="gradient-text">Transforme</span>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                  Bolsa de Ideias
+                </span>
                 <br />
-                <span className="text-gray-900">Suas Ideias</span>
+                <span className="text-gray-900">Transformando Conceitos</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
-                Junte-se à nossa comunidade inovadora e transforme ideias em
-                projetos impactantes
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+                Conectamos mentes criativas, promovemos inovação e transformamos ideias 
+                brilhantes em soluções que impactam o mundo
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <Link to="/bolsa-ideias">
                   <Button
                     size="lg"
-                    className="bg-blue-600 hover:bg-blue-700 hover-glow text-white"
+                    className="bg-blue-800 hover:bg-blue-900 hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-white"
                   >
                     <Lightbulb className="w-5 h-5 mr-2" />
                     Submeter Ideia
@@ -91,7 +93,7 @@ const Home = () => {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-gray-300 text-gray-700 hover:bg-gray-100"
+                    className="border-blue-300 text-blue-800 hover:bg-blue-50 hover:border-blue-500 transition-all duration-300"
                   >
                     <Calendar className="w-5 h-5 mr-2" />
                     Próximos Eventos
@@ -99,23 +101,53 @@ const Home = () => {
                 </Link>
               </div>
             </motion.div>
+
+            {/* Image Carousel */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mb-12"
+            >
+              <ImageCarousel />
+            </motion.div>
           </div>
 
           {/* Floating Elements */}
           <div className="absolute top-20 left-10 animate-float">
-            <div className="w-20 h-20 bg-blue-600/20 rounded-full blur-xl" />
+            <div className="w-20 h-20 bg-blue-400/30 rounded-full blur-xl" />
           </div>
           <div
             className="absolute bottom-20 right-10 animate-float"
             style={{ animationDelay: '2s' }}
           >
-            <div className="w-32 h-32 bg-orange-500/20 rounded-full blur-xl" />
+            <div className="w-32 h-32 bg-blue-600/20 rounded-full blur-xl" />
+          </div>
+          <div
+            className="absolute top-1/2 right-20 animate-float"
+            style={{ animationDelay: '4s' }}
+          >
+            <div className="w-16 h-16 bg-blue-800/20 rounded-full blur-xl" />
           </div>
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 relative">
+        <section className="py-20 relative bg-gradient-to-b from-white to-blue-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Nossa <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Comunidade</span>
+              </h2>
+              <p className="text-gray-700 max-w-2xl mx-auto">
+                Números que demonstram o impacto da nossa comunidade inovadora
+              </p>
+            </motion.div>
+            
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <motion.div
@@ -123,13 +155,15 @@ const Home = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center glass-effect p-6 rounded-2xl hover-glow"
+                  className="text-center bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-blue-100"
                 >
-                  <stat.icon className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <stat.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-blue-800 mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-gray-700 text-sm">{stat.label}</div>
+                  <div className="text-gray-600 text-sm font-medium">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -146,7 +180,7 @@ const Home = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Ideias em <span className="gradient-text">Destaque</span>
+                Ideias em <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Destaque</span>
               </h2>
               <p className="text-gray-700 text-lg max-w-2xl mx-auto">
                 Descubra as ideias mais votadas pela nossa comunidade
